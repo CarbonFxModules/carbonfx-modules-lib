@@ -1,5 +1,0 @@
-C:\fxbots\cAlgoShared\CarbonFx.Modules.dll
-C:\fxbots\cAlgoShared\CarbonFx.Modules.pdb
-D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Release\CarbonFx.cAlgo.Modules.csprojResolveAssemblyReference.cache
-D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Release\CarbonFx.Modules.dll
-D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Release\CarbonFx.Modules.pdb
