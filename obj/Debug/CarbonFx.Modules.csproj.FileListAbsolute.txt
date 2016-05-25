@@ -1,0 +1,5 @@
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.Modules.csprojResolveAssemblyReference.cache
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.Modules.dll
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.Modules.pdb
+C:\fxbots\cAlgoShared\CarbonFx.Modules.dll
+C:\fxbots\cAlgoShared\CarbonFx.Modules.pdb

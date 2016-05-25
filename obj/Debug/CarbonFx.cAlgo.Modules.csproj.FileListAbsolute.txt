@@ -1,0 +1,10 @@
+C:\fxbots\cAlgoShared\CarbonFx.Modules.dll
+C:\fxbots\cAlgoShared\CarbonFx.Modules.pdb
+D:\Current Projects\cAlgoShared\Shared.cAlgo\Shared\obj\Debug\CarbonFx.cAlgo.Modules.csprojResolveAssemblyReference.cache
+D:\Current Projects\cAlgoShared\Shared.cAlgo\Shared\obj\Debug\CarbonFx.Modules.dll
+D:\Current Projects\cAlgoShared\Shared.cAlgo\Shared\obj\Debug\CarbonFx.Modules.pdb
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.cAlgo.Modules.csprojResolveAssemblyReference.cache
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.Modules.dll
+D:\Current Projects\cAlgoShared\CarbonFx\CarbonFx.cAlgo.Modules\obj\Debug\CarbonFx.Modules.pdb
+C:\Users\Arron\Documents\cAlgo\Sources\Robots\CarbonFx.Modules.dll
+C:\Users\Arron\Documents\cAlgo\Sources\Robots\CarbonFx.Modules.pdb
