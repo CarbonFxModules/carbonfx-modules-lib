@@ -143,23 +143,29 @@ namespace CarbonFxModules.Lib
                   GetStopLoss(direction),
                   GetTakeProfit(direction))) return;
 
+            
+            var vol = GetVolume(direction);
+            var label = Strategy.GetLabel();
+            var sl = GetStopLoss(direction);
+            var tp = GetTakeProfit(direction);
+
             // Strategy Risk assesment should go here
             // Check strategy modules
             if (!Strategy.BeforeSendMarketOrder(direction,
                 Strategy.Symbol,
-                GetVolume(direction),
-                Strategy.GetLabel(),
-                GetStopLoss(direction),
-                GetTakeProfit(direction))) return;
+                vol,
+                label,
+                sl,
+                tp )) return;
 
             // Execute trade
             TradeResult result = Strategy.Robot.ExecuteMarketOrder(
                 direction,
                 Strategy.Symbol,
-                GetVolume(direction),
-                Strategy.GetLabel(),
-                GetStopLoss(direction),
-                GetTakeProfit(direction),
+                vol,
+                label,
+                sl,
+                tp,
                 0.5,   // slippage
                 this.Name  // OrderPipeline name
                 );
