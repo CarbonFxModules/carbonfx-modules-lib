@@ -99,7 +99,7 @@ Strategies go from being a large block of monolithic code, to the following.
 void OnStart()
 {
     // Create strategy based on modules
-    var strategy1 = StrategyBuilder.CreateNewStrategy(
+    var sb = StrategyBuilder.CreateNewStrategy(
         this, "SuperAwesomeBot", 
         new string[]{   // Strategy Level Modules
             "MarketCondition.DontTradeOnFridays",
@@ -125,7 +125,7 @@ void OnStart()
         });
     
 
-    this.AddStrategy(strategy1.InitializeStrategy());
+    this.AddStrategy(sb.InitializeStrategy());
 }
 
 ```
