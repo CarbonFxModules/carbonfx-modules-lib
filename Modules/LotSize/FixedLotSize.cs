@@ -11,18 +11,18 @@ namespace CarbonFxModules.Modules.LotSize
     public class FixedLotSize: ModuleBase, ILotSize, IValidateSettings
     {
         const string modulePrefix = "FixedLot_";
-        const string @LotSize = modulePrefix + "Size";
-                
+        const string LotSize = modulePrefix + "Size";
+            
         public double? GetLotSize(TradeType direction)
         {
-            return Settings.Get<double>(@LotSize, 0.01);
+            return Settings.Get<double>(LotSize, 0.01);
         }
 
         public string[] CheckRequiredSettings()
         {
             return new string[]
             {
-                @LotSize
+                LotSize
             };
         }
 

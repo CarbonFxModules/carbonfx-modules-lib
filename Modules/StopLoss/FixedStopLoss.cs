@@ -12,11 +12,11 @@ namespace CarbonFxModules.Modules.StopLoss
     public class FixedStopLoss : ModuleBase, IStopLoss
     {
         const string modulePrefix = "FixedSL_";
-        const string @StopLoss = modulePrefix + "StopLoss";
+        const string StopLoss = modulePrefix + "StopLoss";
 
         public double? GetStopLoss(TradeType direction)
         {
-            return Settings.Get<double>(@StopLoss, 15);
+            return Settings.Get<double>(StopLoss, 15);
         }
     }
 }

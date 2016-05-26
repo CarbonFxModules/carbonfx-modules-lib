@@ -9,8 +9,8 @@ namespace CarbonFxModules.Modules.OrderProtection
     public class TrailingStops : ModuleBase, IOnBar, IModuleInit, IValidateSettings
     {
         const string modulePrefix = "Trailing_";
-        const string @MoveTrailingEvery = modulePrefix + "MoveEvery";
-        const string @TrailingAmount = modulePrefix + "Amount";
+        const string MoveTrailingEvery = modulePrefix + "MoveEvery";
+        const string TrailingAmount = modulePrefix + "Amount";
 
         double _moveTrailingEvery;
         double _trailingAmount;
@@ -22,13 +22,13 @@ namespace CarbonFxModules.Modules.OrderProtection
 
         public string[] GetAvailableSettings()
         {
-            return new string[] { @MoveTrailingEvery, @TrailingAmount };
+            return new string[] { MoveTrailingEvery, TrailingAmount };
         }
 
         public void InitModule()
         {
-            _moveTrailingEvery = Settings.Get<double>(@MoveTrailingEvery, 10.0);
-            _trailingAmount = Settings.Get<double>(@TrailingAmount, 10.0);
+            _moveTrailingEvery = Settings.Get<double>(MoveTrailingEvery, 10.0);
+            _trailingAmount = Settings.Get<double>(TrailingAmount, 10.0);
         }
 
         void IOnBar.OnBar()

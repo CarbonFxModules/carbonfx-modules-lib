@@ -13,11 +13,11 @@ namespace CarbonFxModules.Modules.TakeProfit
     public class FixedTakeProfit : ModuleBase, ITakeProfit
     {
         const string modulePrefix = "FixedTP_";
-        const string @TakeProfit = modulePrefix + "TakeProfit";
+        const string TakeProfit = modulePrefix + "TakeProfit";
 
         public double? GetTakeProfit(TradeType direction)
         {
-            return Settings.Get<double>(@TakeProfit, 15);
+            return Settings.Get<double>(TakeProfit, 15);
         }
     }
 }

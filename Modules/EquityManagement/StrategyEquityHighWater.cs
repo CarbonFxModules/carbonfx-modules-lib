@@ -56,7 +56,7 @@ namespace CarbonFxModules.Modules.EquityManagement
 
         public string[] GetAvailableSettings()
         {
-            return new string[] { @HighWaterPlus };
+            return new string[] { HighWaterPlus };
         }
     }
 }

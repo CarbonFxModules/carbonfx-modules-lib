@@ -6,7 +6,7 @@ namespace CarbonFxModules.Modules.EquityManagement
     public class GlobalEquityHighWater : ModuleBase, IOnBar, IModuleInit, IValidateSettings
     {
         const string modulePrefix = "GlobalEquityHW_";
-        const string @HighWaterPlus = modulePrefix + "HighWaterPlus";
+        const string HighWaterPlus = modulePrefix + "HighWaterPlus";
 
         double _highWaterPlus;
         private double highwaterMark = 0;
@@ -17,7 +17,7 @@ namespace CarbonFxModules.Modules.EquityManagement
             highwaterMark = Strategy.Robot.Account.Balance;
 
             // Dollar amount equity must increase before closing orders
-            _highWaterPlus = Settings.Get<double>(@HighWaterPlus, 5.0);
+            _highWaterPlus = Settings.Get<double>(HighWaterPlus, 5.0);
         }
 
         public void OnBar()
@@ -39,7 +39,7 @@ namespace CarbonFxModules.Modules.EquityManagement
 
         public string[] GetAvailableSettings()
         {
-            return new string[] { @HighWaterPlus };
+            return new string[] { HighWaterPlus };
         }
     }
 }

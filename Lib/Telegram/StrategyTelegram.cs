@@ -14,13 +14,13 @@ namespace CarbonFxModules.Lib.Telegram
 
     public class StrategyTelegram : TelegramClient
     {
-        const string @TelegramChannel = "TelegramChannel";
-        const string @TelegramBotAPI = "TelegramBotAPI";
+        const string TelegramChannel = "TelegramChannel";
+        const string TelegramBotAPI = "TelegramBotAPI";
 
         StrategyBase _strategy;
         public StrategyTelegram(StrategyBase bot) : base(
-                    bot.Settings.Get<string>(@TelegramChannel),
-                    bot.Settings.Get<string>(@TelegramBotAPI),
+                    bot.Settings.Get<string>(TelegramChannel),
+                    bot.Settings.Get<string>(TelegramBotAPI),
                     bot.Name, true
             )
         {
@@ -317,7 +317,7 @@ namespace CarbonFxModules.Lib.Telegram
                 sb.Append(k);
                 sb.Append("  ");
                 // Censor Telegram Settings
-                if (k == @TelegramChannel || k == @TelegramBotAPI)
+                if (k == TelegramChannel || k == TelegramBotAPI)
                 {
                     var val = settings.Get<string>(k);
                     if (val.Length > 4)

@@ -14,11 +14,11 @@ namespace CarbonFxModules
                     this,
                     "Test1",  // Label                    
                     new string[]{   // All modules for this this strategy
-                        "EntryLogic.CandleHighLowLevels",
+                        "EntryLogic.OverboughtOversold",
                         "MarketCondition.DontTradeOnFridays",
                         "EquityManagement.GlobalEquityHighWater",
                         "OrderProtection.TrailingStops",
-                        "OrderSpacing.FibonaciiOrderSpacing",
+                        "OrderFilter.FixedOrderSpacing",
                         "TakeProfit.FixedTakeProfit"
                     }).InitializeStrategy();
 
