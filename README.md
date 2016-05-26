@@ -14,7 +14,7 @@ file.  I always had to run functions at a particular place in the code, handle u
 
 Everything had to conform to cAlgo's onBar, onTick, PositionFilled, PositionClosed, hooks. The issue is that, most 
 interesting pieces of logic span more than one of those hooks, so you have to copy and paste functions into them.
-It was a pain in the butt and prone to errors, so I took a step back and looked form common elements amongst my robots.
+It was a pain in the butt and prone to errors, so I took a step back and looked for common elements amongst my robots.
 
 Most strategies boiled down to some very basic pieces.
 
