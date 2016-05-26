@@ -6,7 +6,7 @@ This library allows for modularized strategy development using cAlgo.
 ## The Problem 
 
 I've been building strategies for several years and have a pretty extensive collection of bots and indicators.  
-A problem emerged over time, where I had lots interesting pieces of entry, exit, and money management logic stuct in files,
+A problem emerged over time, where I had lots interesting pieces of entry, exit, and money management logic stuck in files,
 but no way to easily mix and match them into new strategies.
 
 I tried sub-classing, utility libs, and extension methods, but it always bound my logic to a particular 
