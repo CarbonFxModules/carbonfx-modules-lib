@@ -1,13 +1,9 @@
-﻿using CarbonFxModules.Bots;
+﻿using cAlgo.API;
+using cAlgo.API.Internals;
+using CarbonFxModules.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using cAlgo.API;
-using CarbonFxModules.Modules;
-using cAlgo.API.Internals;
-using CarbonFxModules.Lib;
 
 namespace CarbonFxModules.Lib
 {
