@@ -59,6 +59,7 @@
     <Compile Include="Lib\Interfaces\IValidateSettings.cs" />
     <Compile Include="Lib\Interfaces\ILotSize.cs" />
     <Compile Include="Lib\Interfaces\IMarketFilter.cs" />
+    <Compile Include="Lib\Interfaces\IPositionModified.cs" />
     <Compile Include="Lib\ModuleBase.cs" />
     <Compile Include="Lib\Exceptions\ModuleErrors.cs" />
     <Compile Include="Lib\OrderPipeline.cs" />

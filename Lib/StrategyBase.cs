@@ -9,8 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CarbonFxModules.Lib
 {
@@ -108,7 +106,7 @@ namespace CarbonFxModules.Lib
                     }
                 }
             };
-
+            
             _robot.Positions.Opened += (PositionOpenedEventArgs obj) =>
             {
                 if (obj.Position.Label == this.GetLabel() && this.IsInitialized())
@@ -146,6 +144,25 @@ namespace CarbonFxModules.Lib
             }
         }
 
+        /// <summary>
+        /// Wrapped Robot.ModifyPosition
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="stopLoss"></param>
+        /// <param name="takeProfit"></param>
+        /// <returns></returns>
+        public TradeResult ModifyPosition(Position p, double? stopLoss, double? takeProfit)
+        {
+            var result = _robot.ModifyPosition(p, stopLoss, takeProfit);
+            if (result.IsSuccessful)
+            {
+                foreach(var modules in _positionModifed)
+                {
+                    modules.OnPositionModifed(result.Position);
+                }
+            }
+            return result;
+        }
 
         #endregion
 
@@ -295,6 +312,7 @@ namespace CarbonFxModules.Lib
         List<IOrderFilter> _orderSpacingModules = new List<IOrderFilter>();
         List<IPositionClosed> _positionClosed = new List<IPositionClosed>();
         List<IPositionOpened> _positionOpened = new List<IPositionOpened>();
+        List<IPositionModified> _positionModifed = new List<IPositionModified>();
         List<IBeforeMarketOrder> _beforeMarketOrder = new List<IBeforeMarketOrder>();
         ITakeProfit _takeProfitModule = null;
         IStopLoss _stopLossModule = null;
@@ -353,6 +371,11 @@ namespace CarbonFxModules.Lib
             if (module is IPositionOpened)
             {
                 _positionOpened.Add((IPositionOpened)module);
+            }
+
+            if (module is IPositionModified)
+            {
+                _positionModifed.Add((IPositionModified)module);
             }
 
             if (module is IBeforeMarketOrder)
