@@ -5,8 +5,8 @@ This library allows for modularized strategy development using cAlgo.
 
 ## The Problem 
 
-I've been building strategies for several years and have a pretty extensive colleciton of bots and indicators.  
-A problem emerged over time, where I had lots interesting pieces of entry, exit, and money management logic stuct in files,
+I've been building strategies for several years and have a pretty extensive collection of bots and indicators.  
+A problem emerged over time, where I had lots interesting pieces of entry, exit, and money management logic stuck in files,
 but no way to easily mix and match them into new strategies.
 
 I tried sub-classing, utility libs, and extension methods, but it always bound my logic to a particular 
@@ -14,7 +14,7 @@ file.  I always had to run functions at a particular place in the code, handle u
 
 Everything had to conform to cAlgo's onBar, onTick, PositionFilled, PositionClosed, hooks. The issue is that, most 
 interesting pieces of logic span more than one of those hooks, so you have to copy and paste functions into them.
-It was a pain in the butt and prone to errors, so I took a step back and looked form common elements amongst my robots.
+It was a pain in the butt and prone to errors, so I took a step back and looked for common elements amongst my robots.
 
 Most strategies boiled down to some very basic pieces.
 
