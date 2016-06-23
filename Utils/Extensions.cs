@@ -2,7 +2,9 @@
 using cAlgo.API.Internals;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +12,44 @@ namespace CarbonFxModules.Utils
 {
     public static class Extensions
     {
+
+        /// <summary>
+        /// Creates HMACSHA384 signature of payload data
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="secret"></param>
+        /// <returns></returns>
+        public static string GetSignature(this String source, string secret)
+        {
+            var secretKey = Encoding.ASCII.GetBytes(secret);
+            var sourceByte = Encoding.ASCII.GetBytes(source);
+            byte[] hashValue;
+            using (HMACSHA384 hmac = new HMACSHA384(secretKey))
+            {            
+                hashValue = hmac.ComputeHash(sourceByte);
+            }
+            return hashValue.ByteToString();
+        }
+
+        public static string ByteToString(this byte[] buff)
+        {
+            StringBuilder sb = new StringBuilder(buff.Length);
+            for (int i = 0; i < buff.Length; i++)
+            {
+                sb.Append(buff[i].ToString("X2")); // hex format
+            }
+            return sb.ToString();
+        }
+        /// <summary>
+        /// Converts to base64
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static String ToBase64String(this String source)
+        {
+            return Convert.ToBase64String(Encoding.Unicode.GetBytes(source));
+        }
+
         /// <summary>
         /// AppendLine + AppendFormat
         /// </summary>
@@ -33,7 +73,7 @@ namespace CarbonFxModules.Utils
         {
             List<T> outArray = new List<T>();
             if (endIdx == -1) endIdx = list.Count;
-            while(startIdx < endIdx)
+            while (startIdx < endIdx)
             {
                 outArray.Add(list[startIdx++]);
             }
@@ -53,6 +93,18 @@ namespace CarbonFxModules.Utils
         public static double CostPerPip(this Symbol sym, long volume)
         {
             return sym.PipValue * volume;
+        }
+
+        /// <summary>
+        /// Returns the number of pips between two prices
+        /// </summary>
+        /// <param name="sym"></param>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
+        public static double GetPips(this Symbol sym, double p1, double p2)
+        {
+            return Math.Round(Math.Abs(p1 - p2) / sym.PipSize, 1);
         }
 
 
