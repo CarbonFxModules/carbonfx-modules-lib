@@ -55,7 +55,17 @@ namespace CarbonFxModules.Utils
             double heightLatest = _series.High[cnt] - _series.Low[cnt];
             double heightPrevious = _series.High[cnt - 1] - _series.Low[cnt - 1];
 
-            return lastIsUp && previousIsDown && heightLatest > heightPrevious;
+            double avg = 0;
+            for (int k = 1; k < 4; k++)
+            {
+                avg += _series.High[cnt - k] - _series.Low[cnt - k];
+            }
+            avg /= 3;
+
+            return lastIsUp &&
+                previousIsDown &&
+                heightLatest > heightPrevious &&
+                heightLatest > avg;
         }
 
         /// <summary>
@@ -72,7 +82,17 @@ namespace CarbonFxModules.Utils
             double heightLatest = _series.High[cnt] - _series.Low[cnt];
             double heightPrevious = _series.High[cnt - 1] - _series.Low[cnt - 1];
 
-            return lastIsDown && previousIsUp && heightLatest > heightPrevious;
+            double avg = 0;
+            for (int k = 1; k < 4; k++)
+            {
+                avg += _series.High[cnt - k] - _series.Low[cnt - k];
+            }
+            avg /= 3;
+
+            return lastIsDown &&
+                previousIsUp &&
+                heightLatest > heightPrevious &&
+                heightLatest > avg;
         }
 
         /// <summary>
@@ -92,7 +112,7 @@ namespace CarbonFxModules.Utils
         /// <param name="offset">Offset.</param>
         public bool IsLowerLow(int offset = 0)
         {
-            return _series.Low[_seriesIdx - offset] >= _series.Low[_seriesIdx - offset - 1];
+            return _series.Low[_seriesIdx - offset] <= _series.Low[_seriesIdx - offset - 1];
         }
 
         /// <summary>
@@ -114,7 +134,6 @@ namespace CarbonFxModules.Utils
 
             return false;
             // Sort, find talest and see if the current candle compares to the tallest oines
-
         }
 
 
@@ -325,7 +344,7 @@ namespace CarbonFxModules.Utils
                     }
                 }
             })
-            .Where((k)=> 
+            .Where((k) =>
             {
                 // Filter out weak levels
                 return weakLevels.Contains(k) == false;
